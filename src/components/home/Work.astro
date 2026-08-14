@@ -1,0 +1,31 @@
+---
+import ProjectCard from '../ProjectCard.astro';
+import { projects } from '../../data/projects';
+---
+<section class="section work" id="work">
+  <div class="shell">
+    <div class="section-head">
+      <div><div class="index">02 / SELECTED WORK</div><h2>PROYECTOS</h2></div>
+      <p>Fotografía, campañas, identidades, interfaces y piezas audiovisuales. Esta galería está preparada para crecer con tus trabajos reales.</p>
+    </div>
+    <div class="filters" aria-label="Filtrar proyectos">
+      <button class="filter active" data-filter="all">Todo</button>
+      <button class="filter" data-filter="photo">Fotografía</button>
+      <button class="filter" data-filter="design">Diseño</button>
+      <button class="filter" data-filter="web">Web</button>
+      <button class="filter" data-filter="video">Video</button>
+    </div>
+    <div class="projects">
+      {projects.map(project => <ProjectCard {project} />)}
+    </div>
+  </div>
+</section>
+<script>
+  const filters = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+  const cards = document.querySelectorAll<HTMLElement>('[data-category]');
+  filters.forEach(button => button.addEventListener('click', () => {
+    const filter = button.dataset.filter;
+    filters.forEach(item => item.classList.toggle('active', item === button));
+    cards.forEach(card => card.classList.toggle('hide', filter !== 'all' && card.dataset.category !== filter));
+  }));
+</script>
