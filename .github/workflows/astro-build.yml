@@ -20,3 +20,5 @@ jobs:
         run: npm install
       - name: Build Astro
         run: npm run build
+      - name: Validate Wrangler deployment
+        run: npx wrangler@latest deploy --dry-run
