@@ -1,66 +1,75 @@
-# Javier Moreno — Creative Portfolio
+# Javier Moreno — Creative Portfolio (Astro)
 
-Portfolio estático **mobile-first + SEO** listo para **GitHub + Cloudflare Pages**.
+Portfolio creativo construido en **Astro**, responsive desde una sola arquitectura y preparado para GitHub + Cloudflare.
 
-## Qué incluye
-- Home portfolio responsive
-- Galería filtrable: fotografía / diseño / web / video
-- Showreel y modales
-- Mobile menu y ajustes específicos para 430px / 360px / landscape
-- SEO técnico: title, meta description, robots, Open Graph, Twitter, Schema.org y canonical dinámico
-- 4 landings SEO internas: `/fotografia/`, `/diseno-grafico/`, `/diseno-web/`, `/video/`
-- Sitemap XML dinámico en `/sitemap.xml` mediante Cloudflare Pages Function
-- Headers de seguridad y caché
+## Stack
+- Astro
+- HTML estático generado en build
+- CSS responsive sin frameworks
+- JavaScript mínimo para menú y filtros
+- SEO por página
+- Sitemap y robots generados por Astro
 
-## Publicar en GitHub
-1. Crea un repositorio nuevo.
-2. Sube **todo el contenido de esta carpeta** a la raíz del repo (incluyendo `functions/`).
-3. Haz commit en `main`.
+## Estructura
+- `src/layouts/BaseLayout.astro` — SEO y estructura global
+- `src/components/Header.astro` — navegación desktop/mobile
+- `src/components/Footer.astro`
+- `src/components/ProjectCard.astro`
+- `src/components/ServicePage.astro` — plantilla compartida de servicios
+- `src/components/home/*` — secciones del Home
+- `src/data/projects.ts` — proyectos del portfolio
+- `src/pages/index.astro`
+- `src/pages/fotografia/index.astro`
+- `src/pages/diseno-grafico/index.astro`
+- `src/pages/diseno-web/index.astro`
+- `src/pages/video/index.astro`
+- `src/styles/global.css`
+- `src/styles/home.css`
+- `src/styles/service.css`
+- `public/assets/media/` — imágenes y archivos multimedia
 
-## Publicar en Cloudflare Pages
-1. Cloudflare → Workers & Pages → Create → Pages → Connect to Git.
-2. Selecciona tu repositorio.
-3. Production branch: `main`.
-4. Framework preset: **None**.
-5. Build command: `exit 0`.
-6. Build output directory: `public`.
-7. Save and Deploy.
+## Desarrollo local
+```bash
+npm install
+npm run dev
+```
 
-`functions/sitemap.xml.js` genera un sitemap usando el dominio real desde el que se visita la web, así funciona tanto en `pages.dev` como en tu dominio personalizado.
+## Build
+```bash
+npm run build
+```
 
-## Después de conectar tu dominio
-1. Abre `https://TU-DOMINIO.com/sitemap.xml` y comprueba que cargue.
-2. Añade tu dominio en Google Search Console.
-3. Envía `sitemap.xml` desde Search Console.
-4. Usa Inspección de URL para solicitar indexación de la Home y las 4 páginas de servicios.
+Astro genera el sitio en `dist/`.
 
-## Cambiar tus datos
-Edita `public/assets/js/site.config.js`.
+## Cloudflare Pages
+- Production branch: `main`
+- Framework preset: `Astro`
+- Build command: `npm run build`
+- Build output directory: `dist`
 
-Cambia especialmente:
-- email
-- Instagram
-- Behance
-- LinkedIn
+Cada commit a `main` puede generar un nuevo deployment automáticamente desde Cloudflare.
 
-## Cambiar / agregar proyectos
-Edita `public/assets/js/projects.js`. Copia tus imágenes a `public/assets/media/`.
+## Dominio / canonical / sitemap
+`astro.config.mjs` usa `PUBLIC_SITE_URL` si existe y, como fallback, `https://portafolio.zencontroller.workers.dev`.
 
-Para cada proyecto puedes configurar: `title`, `category`, `categoryLabel`, `year`, `role`, `image`, `description`, `link`.
+Si conectas un dominio propio, agrega en Cloudflare una variable de build:
+```text
+PUBLIC_SITE_URL=https://tudominio.com
+```
 
-### Recomendación SEO para imágenes reales
-Usa nombres descriptivos, por ejemplo:
-- `fotografia-producto-caracas-cosmetica.webp`
-- `diseno-branding-restaurante-caracas.webp`
-- `diseno-web-portfolio-arquitectura.webp`
+El sitio genera:
+- `/robots.txt`
+- `/sitemap.xml`
+- canonical por URL
+- Open Graph
+- Twitter metadata
+- Schema.org
 
-Exporta preferiblemente a WebP/AVIF y evita subir imágenes enormes si se mostrarán pequeñas.
+## Cambiar proyectos
+Edita `src/data/projects.ts` y agrega los archivos visuales en `public/assets/media/`.
 
-## Agregar tu retrato
-En `public/index.html`, busca `YOUR PORTRAIT HERE` y reemplaza ese bloque por tu fotografía manteniendo `.about-photo`.
+## Cambiar información personal
+Los textos principales están en los componentes de `src/components/home/` y las páginas de servicios en `src/pages/`.
 
-## Agregar tu showreel
-Coloca tu MP4 como `public/assets/media/showreel.mp4`.
-
-## Importante para posicionar
-El SEO técnico deja una base correcta, pero aparecer arriba en Google también dependerá de contenido real, autoridad/enlaces, competencia, velocidad, Search Console y del dominio final. Sustituye los proyectos demo por trabajos reales y agrega descripciones concretas de cada caso.
+## CI
+`.github/workflows/astro-build.yml` instala dependencias y ejecuta `npm run build` para detectar errores antes del deploy.
