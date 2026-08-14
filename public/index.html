@@ -39,7 +39,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600;700&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="stylesheet" href="assets/css/mobile-v4.css?v=5" />
+  <link rel="stylesheet" href="assets/css/mobile-v6.css?v=1" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Saltar al contenido</a>
@@ -90,8 +90,8 @@
 
       <div class="hero-title-wrap">
         <h1 class="hero-title" aria-label="Javier Moreno">
-          <span class="hero-line"><span class="split-word">JAVIER</span></span>
-          <span class="hero-line hero-line-offset"><span class="split-word">MORENO</span></span>
+          <span class="hero-line"><span class="split-word" data-fit-mobile>JAVIER</span></span>
+          <span class="hero-line hero-line-offset"><span class="split-word" data-fit-mobile>MORENO</span></span>
         </h1>
         <div class="hero-badge" aria-hidden="true">
           <span>MAKE IT</span>
@@ -214,7 +214,10 @@
         <div class="section-index">06 / CONTACT</div>
         <span class="availability"><i></i> Disponible para nuevos proyectos</span>
       </div>
-      <h2 class="contact-title reveal">¿HACEMOS<br><span>ALGO WOW?</span></h2>
+      <h2 class="contact-title reveal" aria-label="¿Hacemos algo wow?">
+        <span class="contact-line"><span class="fit-word" data-fit-mobile>¿HACEMOS</span></span>
+        <span class="contact-line"><span class="fit-word" data-fit-mobile>ALGO WOW?</span></span>
+      </h2>
       <div class="contact-actions reveal">
         <a class="contact-pill magnetic" id="emailLink" href="mailto:hello@javiermoreno.studio">hello@javiermoreno.studio <span>↗</span></a>
         <div class="social-links">
@@ -261,5 +264,6 @@
   <script src="assets/js/projects.js"></script>
   <script src="assets/js/seo.js"></script>
   <script src="assets/js/app.js"></script>
+  <script src="assets/js/mobile-fit-v6.js?v=1"></script>
 </body>
 </html>
