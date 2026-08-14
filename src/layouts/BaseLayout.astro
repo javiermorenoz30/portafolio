@@ -1,0 +1,55 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  type?: 'website' | 'profile';
+  schema?: Record<string, unknown>;
+}
+
+const {
+  title,
+  description,
+  type = 'website',
+  schema
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.url.origin).toString();
+const defaultSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Javier Moreno',
+  jobTitle: 'Fotógrafo, diseñador gráfico y diseñador web',
+  description: 'Creativo especializado en fotografía, branding, diseño visual, video, motion y diseño web.',
+  knowsAbout: ['Fotografía','Diseño gráfico','Branding','Diseño web','Video','Motion graphics','Dirección de arte']
+};
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <meta name="theme-color" content="#080808" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="author" content="Javier Moreno" />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Javier Moreno Creative Studio" />
+    <meta property="og:locale" content="es_VE" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <link rel="icon" href="/assets/media/favicon.svg" type="image/svg+xml" />
+    <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(schema ?? defaultSchema)}></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Saltar al contenido</a>
+    <slot />
+  </body>
+</html>
