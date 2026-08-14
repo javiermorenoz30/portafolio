@@ -14,6 +14,7 @@
 
   menuBtn?.addEventListener('click', () => setMenu(!mobileMenu.classList.contains('open')));
   menuLinks.forEach(link => link.addEventListener('click', () => setMenu(false)));
+  window.addEventListener('resize', () => { if (window.innerWidth > 980) setMenu(false); }, { passive:true });
 
   const filters = document.querySelectorAll('[data-filter]');
   const projects = document.querySelectorAll('[data-category]');
@@ -23,6 +24,22 @@
       filters.forEach(btn => btn.classList.toggle('active', btn === button));
       projects.forEach(card => card.classList.toggle('hide', value !== 'all' && card.dataset.category !== value));
     });
+  });
+
+  const cfg = window.SITE_CONFIG || {};
+  const email = document.querySelector('[data-email]');
+  if (email && cfg.email) {
+    email.href = `mailto:${cfg.email}`;
+    email.firstChild.nodeValue = `${cfg.email} `;
+  }
+  const socialMap = [
+    ['[data-instagram]', cfg.instagram],
+    ['[data-behance]', cfg.behance],
+    ['[data-linkedin]', cfg.linkedin]
+  ];
+  socialMap.forEach(([selector, href]) => {
+    const el = document.querySelector(selector);
+    if (el && href) { el.href = href; el.target = '_blank'; el.rel = 'noopener'; }
   });
 
   const year = document.querySelector('[data-year]');
