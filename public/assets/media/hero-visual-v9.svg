@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1250" role="img" aria-label="Composición visual abstracta de Javier Moreno">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0b0c"/>
+      <stop offset="0.48" stop-color="#17152a"/>
+      <stop offset="1" stop-color="#070708"/>
+    </linearGradient>
+    <radialGradient id="orb" cx="40%" cy="35%" r="70%">
+      <stop offset="0" stop-color="#d8ff3e"/>
+      <stop offset="0.28" stop-color="#d8ff3e"/>
+      <stop offset="0.55" stop-color="#6e5cff"/>
+      <stop offset="1" stop-color="#19191c"/>
+    </radialGradient>
+    <radialGradient id="pink" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#ff4b99" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#ff4b99" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="48"/></filter>
+  </defs>
+  <rect width="1000" height="1250" fill="url(#bg)"/>
+  <circle cx="245" cy="980" r="260" fill="url(#pink)" filter="url(#blur)" opacity=".72"/>
+  <circle cx="790" cy="270" r="285" fill="#6658ff" opacity=".16" filter="url(#blur)"/>
+  <rect x="85" y="90" width="830" height="1070" rx="415" fill="none" stroke="#ffffff" stroke-opacity=".11" stroke-width="2"/>
+  <circle cx="500" cy="585" r="300" fill="#080809" stroke="#ffffff" stroke-opacity=".12" stroke-width="2"/>
+  <circle cx="500" cy="585" r="210" fill="url(#orb)"/>
+  <circle cx="500" cy="585" r="112" fill="#09090a"/>
+  <circle cx="455" cy="548" r="19" fill="#d8ff3e"/>
+  <circle cx="545" cy="548" r="19" fill="#d8ff3e"/>
+  <path d="M390 692c48 55 172 55 220 0" fill="none" stroke="#f4f1ea" stroke-opacity=".72" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="165" cy="205" r="20" fill="#d8ff3e"/>
+  <circle cx="835" cy="1030" r="12" fill="#ff4b99"/>
+  <path d="M120 1075h310" stroke="#ffffff" stroke-opacity=".35" stroke-width="2"/>
+  <path d="M570 175h310" stroke="#ffffff" stroke-opacity=".35" stroke-width="2"/>
+  <rect x="110" y="103" width="94" height="34" rx="17" fill="#d8ff3e"/>
+  <rect x="795" y="1095" width="94" height="34" rx="17" fill="#f4f1ea"/>
+</svg>
