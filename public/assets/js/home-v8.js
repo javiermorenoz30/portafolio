@@ -1,4 +1,12 @@
 (() => {
+  if (!document.querySelector('link[data-desktop-v9]')) {
+    const desktopCss = document.createElement('link');
+    desktopCss.rel = 'stylesheet';
+    desktopCss.href = 'assets/css/home-desktop-v9.css?v=1';
+    desktopCss.dataset.desktopV9 = 'true';
+    document.head.appendChild(desktopCss);
+  }
+
   const menuBtn = document.querySelector('[data-menu-button]');
   const mobileMenu = document.querySelector('[data-mobile-menu]');
   const menuLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
