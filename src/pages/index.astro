@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/home/Hero.astro';
+import Manifesto from '../components/home/Manifesto.astro';
+import Work from '../components/home/Work.astro';
+import Services from '../components/home/Services.astro';
+import About from '../components/home/About.astro';
+import Contact from '../components/home/Contact.astro';
+import '../styles/home.css';
+
+const title = 'Javier Moreno | Fotógrafo, Diseñador Gráfico y Web en Caracas';
+const description = 'Portfolio de Javier Moreno, fotógrafo, diseñador gráfico y diseñador web en Caracas. Fotografía, branding, video, motion y experiencias web para marcas y proyectos.';
+const schema = {
+  '@context':'https://schema.org',
+  '@type':'ProfilePage',
+  name:'Portfolio de Javier Moreno',
+  mainEntity:{
+    '@type':'Person',
+    name:'Javier Moreno',
+    jobTitle:'Fotógrafo, diseñador gráfico y diseñador web',
+    areaServed:'Caracas, Venezuela',
+    knowsAbout:['Fotografía','Diseño gráfico','Branding','Diseño web','Video','Motion graphics','Dirección de arte']
+  }
+};
+---
+<BaseLayout {title} {description} type="profile" {schema}>
+  <Header />
+  <main id="main-content" class="home">
+    <Hero />
+    <Manifesto />
+    <Work />
+    <Services />
+    <About />
+    <Contact />
+  </main>
+  <Footer />
+</BaseLayout>
