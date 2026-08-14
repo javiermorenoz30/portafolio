@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import '../styles/service.css';
+
+interface Point { title:string; text:string; }
+interface Props {
+  title:string;
+  description:string;
+  crumb:string;
+  heroLine1:string;
+  heroLine2:string;
+  lede:string;
+  aside:string;
+  heading:string;
+  intro:string;
+  subheading:string;
+  body:string;
+  points:Point[];
+}
+const p = Astro.props;
+const schema = {
+  '@context':'https://schema.org',
+  '@type':'Service',
+  name:`${p.crumb} — Javier Moreno`,
+  description:p.description,
+  provider:{'@type':'Person',name:'Javier Moreno'},
+  areaServed:'Caracas, Venezuela'
+};
+---
+<BaseLayout title={p.title} description={p.description} schema={schema}>
+  <Header />
+  <main id="main-content" class="service-main">
+    <section class="service-hero">
+      <div class="shell service-hero-inner">
+        <div class="crumb"><a href="/">Javier Moreno</a> / {p.crumb}</div>
+        <h1 class="service-title"><span>{p.heroLine1}</span><span class="muted">{p.heroLine2}</span></h1>
+        <p class="service-lede">{p.lede}</p>
+      </div>
+    </section>
+    <section class="service-content">
+      <div class="shell service-grid">
+        <div class="service-aside">{p.aside}<br />CARACAS / WORLDWIDE</div>
+        <div class="service-copy">
+          <h2>{p.heading}</h2>
+          <p>{p.intro}</p>
+          <h3>{p.subheading}</h3>
+          <p>{p.body}</p>
+          <div class="service-points">
+            {p.points.map(point => <div class="service-point"><strong>{point.title}</strong><span>{point.text}</span></div>)}
+          </div>
+          <div class="service-cta"><p>¿Tienes un proyecto en mente? Cuéntame qué quieres crear.</p><a href="/#contact">Hablemos ↗</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
