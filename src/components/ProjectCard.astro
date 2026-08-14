@@ -1,0 +1,13 @@
+---
+import type { Project } from '../data/projects';
+interface Props { project: Project; }
+const { project } = Astro.props;
+---
+<a class="project-card" href={project.href} data-category={project.category}>
+  <img src={project.image} alt={project.alt} loading="lazy" decoding="async" />
+  <div class="project-copy">
+    <h3>{project.title}</h3>
+    <p>{project.categoryLabel} · {project.role}</p>
+  </div>
+  <span class="project-arrow" aria-hidden="true">↗</span>
+</a>
