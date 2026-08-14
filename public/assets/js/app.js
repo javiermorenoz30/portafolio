@@ -34,7 +34,7 @@
   }
 
   // Magnetic micro-interaction
-  $$('.magnetic').forEach(el => {
+  if (window.matchMedia('(pointer:fine) and (hover:hover)').matches) $$('.magnetic').forEach(el => {
     el.addEventListener('mousemove', e => {
       const r = el.getBoundingClientRect();
       const x = e.clientX - r.left - r.width/2;
@@ -69,8 +69,8 @@
   function renderProjects() {
     if (!grid) return;
     grid.innerHTML = projects.map((p,i) => `
-      <button class="project-card reveal" data-category="${p.category}" data-id="${p.id}" style="transition-delay:${(i%4)*45}ms">
-        <img src="${p.image}" alt="${p.title}" loading="lazy" decoding="async">
+      <button class="project-card reveal" data-category="${p.category}" data-id="${p.id}" aria-label="Abrir proyecto ${p.title}, ${p.categoryLabel}" style="transition-delay:${(i%4)*45}ms">
+        <img src="${p.image}" alt="${p.title} — proyecto de ${p.categoryLabel.toLowerCase()} de Javier Moreno" loading="lazy" decoding="async">
         <div class="project-info">
           <div><h3>${p.title}</h3><p>${p.categoryLabel} · ${p.year}</p></div>
           <div class="project-arrow">↗</div>
