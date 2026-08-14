@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#070707" />
+  <meta name="description" content="Portfolio de Javier Moreno — fotografía, diseño visual, dirección creativa, video y diseño web." />
+  <meta property="og:title" content="Javier Moreno — Creative Portfolio" />
+  <meta property="og:description" content="Fotografía · Diseño · Video · Web" />
+  <meta property="og:type" content="website" />
+  <title>Javier Moreno — Creative Portfolio</title>
+  <link rel="icon" href="assets/media/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600;700&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor cursor-dot" aria-hidden="true"></div>
+  <div class="cursor cursor-ring" aria-hidden="true"></div>
+
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-mark">JM</div>
+    <div class="loader-line"><span></span></div>
+    <div class="loader-copy">CREATIVE PORTFOLIO / 2026</div>
+  </div>
+
+  <header class="site-header" id="top">
+    <a class="brand magnetic" href="#top" aria-label="Javier Moreno, inicio">
+      <span class="brand-mark">JM</span>
+      <span class="brand-copy">Javier Moreno<br><small>Creative Studio</small></span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Navegación principal">
+      <a href="#work">Trabajo</a>
+      <a href="#services">Servicios</a>
+      <a href="#about">Sobre mí</a>
+      <a href="#contact">Contacto</a>
+    </nav>
+
+    <button class="menu-toggle magnetic" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <a href="#work"><em>01</em> Trabajo</a>
+      <a href="#services"><em>02</em> Servicios</a>
+      <a href="#about"><em>03</em> Sobre mí</a>
+      <a href="#contact"><em>04</em> Contacto</a>
+      <div class="menu-meta">Caracas / Worldwide · Available for selected projects</div>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="hero-orbit orbit-a" aria-hidden="true"></div>
+      <div class="hero-orbit orbit-b" aria-hidden="true"></div>
+
+      <div class="hero-kicker reveal">Fotógrafo · Diseñador · Web · Video</div>
+
+      <div class="hero-title-wrap">
+        <h1 class="hero-title" aria-label="Javier Moreno">
+          <span class="hero-line"><span class="split-word">JAVIER</span></span>
+          <span class="hero-line hero-line-offset"><span class="split-word">MORENO</span></span>
+        </h1>
+        <div class="hero-badge" aria-hidden="true">
+          <span>MAKE IT</span>
+          <strong>WOW</strong>
+        </div>
+      </div>
+
+      <div class="hero-footer reveal">
+        <p>Creo imágenes, identidades y experiencias digitales que no se sienten “correctas”. <strong>Se sienten inolvidables.</strong></p>
+        <a class="round-cta magnetic" href="#work">
+          <span>VER<br>PROYECTOS</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16M6 14l6 6 6-6"/></svg>
+        </a>
+      </div>
+
+      <div class="hero-ticker" aria-hidden="true">
+        <div class="ticker-track">
+          <span>PHOTOGRAPHY ✦ BRANDING ✦ WEB DESIGN ✦ ART DIRECTION ✦ VIDEO ✦</span>
+          <span>PHOTOGRAPHY ✦ BRANDING ✦ WEB DESIGN ✦ ART DIRECTION ✦ VIDEO ✦</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="manifesto section-pad">
+      <div class="section-index reveal">01 / IDEA</div>
+      <div class="manifesto-grid">
+        <p class="manifesto-eyebrow reveal">No hago “contenido”. Construyo percepción.</p>
+        <h2 class="display-copy reveal">Una buena imagen llama la atención.<br><span>Una gran idea cambia cómo te recuerdan.</span></h2>
+        <div class="manifesto-side reveal">
+          <p>Trabajo entre fotografía, diseño, motion y web para crear piezas con una dirección visual única y coherente.</p>
+          <div class="mini-stat"><strong>4</strong><span>disciplinas<br>un mismo lenguaje</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="work section-pad" id="work">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-index">02 / SELECTED WORK</div>
+          <h2>PROYECTOS</h2>
+        </div>
+        <p>Un archivo vivo de fotografía, campañas, identidades, interfaces y piezas audiovisuales.</p>
+      </div>
+
+      <div class="filters reveal" role="group" aria-label="Filtrar proyectos">
+        <button class="filter-btn active" data-filter="all">Todo</button>
+        <button class="filter-btn" data-filter="photo">Fotografía</button>
+        <button class="filter-btn" data-filter="design">Diseño</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="video">Video</button>
+      </div>
+
+      <div class="project-grid" id="projectGrid"></div>
+    </section>
+
+    <section class="video-feature section-pad" id="reel">
+      <div class="section-index reveal">03 / MOTION</div>
+      <button class="reel-card reveal" id="openReel" aria-label="Abrir reel">
+        <div class="reel-visual">
+          <div class="reel-gradient"></div>
+          <div class="reel-type">SHOW<br>REEL</div>
+          <div class="reel-year">2026</div>
+        </div>
+        <div class="reel-bottom">
+          <span>Dirección · Edición · Motion · Campañas</span>
+          <span class="play-icon">▶</span>
+        </div>
+      </button>
+    </section>
+
+    <section class="services section-pad" id="services">
+      <div class="section-index reveal">04 / SERVICES</div>
+      <div class="services-intro reveal">
+        <h2>CUATRO FORMAS<br><span>DE HACER RUIDO.</span></h2>
+        <p>Puedes contratar una disciplina o conectar varias para construir una campaña, marca o experiencia completa.</p>
+      </div>
+      <div class="service-list">
+        <article class="service-item reveal" data-service="01">
+          <div class="service-num">01</div><h3>Fotografía</h3><p>Editorial · Producto · Retrato · Lifestyle · Eventos</p><span>↗</span>
+        </article>
+        <article class="service-item reveal" data-service="02">
+          <div class="service-num">02</div><h3>Diseño visual</h3><p>Branding · Campañas · Social · Presentaciones · Editorial</p><span>↗</span>
+        </article>
+        <article class="service-item reveal" data-service="03">
+          <div class="service-num">03</div><h3>Diseño web</h3><p>Landing pages · Portfolios · E-commerce · UI · Front-end</p><span>↗</span>
+        </article>
+        <article class="service-item reveal" data-service="04">
+          <div class="service-num">04</div><h3>Video & motion</h3><p>Reels · Campañas · Edición · Motion graphics · Promos</p><span>↗</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="about section-pad" id="about">
+      <div class="about-stage">
+        <div class="about-card reveal">
+          <div class="about-photo" aria-label="Espacio para foto de Javier Moreno">
+            <span>YOUR<br>PORTRAIT<br>HERE</span>
+            <div class="about-photo-glow"></div>
+          </div>
+          <div class="about-stamp">JAVIER / MORENO / CREATIVE / STUDIO /</div>
+        </div>
+        <div class="about-copy reveal">
+          <div class="section-index">05 / ABOUT</div>
+          <h2>SOY JAVIER.<br><span>Y ME ABURRE LO OBVIO.</span></h2>
+          <p>Fotógrafo, diseñador y creador digital. Me gusta convertir una idea simple en una experiencia visual con carácter: encuadres que detienen el scroll, identidades que se reconocen sin leer el logo y webs que se sienten vivas.</p>
+          <p class="about-note">Disponible para proyectos, campañas, colaboraciones y trabajos remotos.</p>
+          <a class="text-link magnetic" href="#contact">Hablemos de tu proyecto <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact section-pad" id="contact">
+      <div class="contact-top reveal">
+        <div class="section-index">06 / CONTACT</div>
+        <span class="availability"><i></i> Disponible para nuevos proyectos</span>
+      </div>
+      <h2 class="contact-title reveal">¿HACEMOS<br><span>ALGO WOW?</span></h2>
+      <div class="contact-actions reveal">
+        <a class="contact-pill magnetic" id="emailLink" href="mailto:hello@javiermoreno.studio">hello@javiermoreno.studio <span>↗</span></a>
+        <div class="social-links">
+          <a href="#" data-social="instagram">Instagram ↗</a>
+          <a href="#" data-social="behance">Behance ↗</a>
+          <a href="#" data-social="linkedin">LinkedIn ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>© <span id="year"></span> JAVIER MORENO</div>
+    <div>PHOTOGRAPHY · DESIGN · WEB · VIDEO</div>
+    <a href="#top">BACK TO TOP ↑</a>
+  </footer>
+
+  <dialog class="project-modal" id="projectModal">
+    <button class="modal-close" id="projectClose" aria-label="Cerrar">×</button>
+    <div class="modal-media" id="modalMedia"></div>
+    <div class="modal-copy">
+      <div class="modal-meta" id="modalMeta"></div>
+      <h3 id="modalTitle"></h3>
+      <p id="modalDescription"></p>
+      <a id="modalLink" class="text-link" href="#" target="_blank" rel="noopener">Ver proyecto <span>↗</span></a>
+    </div>
+  </dialog>
+
+  <dialog class="reel-modal" id="reelModal">
+    <button class="modal-close" id="reelClose" aria-label="Cerrar">×</button>
+    <div class="video-placeholder">
+      <div class="video-placeholder-inner">
+        <span>SHOWREEL</span>
+        <strong>Coloca tu MP4 en<br><code>assets/media/showreel.mp4</code></strong>
+        <small>La web detectará el archivo automáticamente cuando lo reemplaces.</small>
+      </div>
+      <video id="showreelVideo" controls playsinline preload="metadata">
+        <source src="assets/media/showreel.mp4" type="video/mp4">
+      </video>
+    </div>
+  </dialog>
+
+  <script src="assets/js/site.config.js"></script>
+  <script src="assets/js/projects.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
